@@ -9,7 +9,7 @@ Welcome to the **SIH-hmhm** GitHub organization! We are a team of six developers
 - **Shravani** - Frontend Developer
 - **Zishan** - Data Specialist & Chatbot Training
 - **Selva** - Data Specialist & Chatbot Training
-- **Moin** - Backend Developer & Database Manager
+- **Mohin** - Backend Developer & Database Manager
 - **Vinayak** - Backend Developer & Database Manager
 
 ### Project Overview:
