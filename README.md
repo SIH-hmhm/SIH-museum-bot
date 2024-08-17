@@ -41,7 +41,7 @@ Our project focuses on the development of a chatbot application specifically des
   - Training the chatbot using the Rasa framework to handle multilingual conversations.
   - Continuously improving the chatbot's language model based on user interactions.
 
-- **Backend Development & Database Management (Moin & Vinayak):**
+- **Backend Development & Database Management (Mohin & Vinayak):**
   - Developing the backend logic to handle user requests, process payments, and manage ticketing operations.
   - Setting up and maintaining the database to store ticketing information, user data, and conversation logs.
   - Ensuring secure and efficient communication between the frontend and backend systems.
