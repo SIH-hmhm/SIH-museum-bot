@@ -1,10 +1,11 @@
 import './App.css'
+import Chatbot from './Components/test'
 
 function App() {
 
   return (
     <>
-      <h1>SIH MuseBot</h1>
+      <Chatbot/>
     </>
   )
 }
