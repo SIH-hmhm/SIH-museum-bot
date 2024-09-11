@@ -9,13 +9,7 @@ const app = express();
 app.use(bodyparser.json());
 app.use(cors());
 
-mongoose.connect("mongodb://localhost:27017/SIH-museum-bot")
-.then(() => {
-    console.log("Connected!")
-})
-.catch(() =>{
-    console.log("Error!")
-})
+
 
 app.use('/api',route)
 

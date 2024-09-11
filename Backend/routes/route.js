@@ -1,14 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
+const  bot = require('../Controller/botContoller');
 
-router.post('/chatbot', async (req, res) => {
-    try {
-        const res = await axios.post('http://localhost:5001/chatbot', req.body);
-        res.json(res.data);
-    } catch (error) {
-        res.status(500).json({ error: 'eror python server' });
-    }
-});
+router.post('/chatbot', bot.botController);
 
 module.exports = router;
