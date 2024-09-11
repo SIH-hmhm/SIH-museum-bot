@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ENDPOINT_URL } from "../constant/constants"
+import axios from 'axios';
 
 const Chatbot = () => {
     const [message, setMessage] = useState('');
@@ -8,16 +8,12 @@ const Chatbot = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch(`${ENDPOINT_URL}/chatbot`, {
-                method: 'POST',
+            const res = await axios.post('http://localhost:5000/api/chatbot', { message }, {
                 headers: {
-                    Accept: 'application/json',
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ message }),
             });
-            const data = await res.json();
-            setResponse(data.response);
+            setResponse(res.data.response);
         } catch (error) {
             console.error('Error with chatbot:', error);
         }
