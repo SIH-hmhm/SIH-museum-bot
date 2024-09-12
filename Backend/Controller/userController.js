@@ -40,6 +40,7 @@ export const signUp = async (req, res) => {
     } 
     //If any error occurs then it will return the error
     catch (error) {
+        console.error(error.stack);
         res.status(500).json({ error: error.message });
     }
 }

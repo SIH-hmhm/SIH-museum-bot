@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import User from '../models/userSchema.js';
+import User from '../Models/userModel.js';
 
 // Protect routes from unauthorized users
 export const protect = async (req, res, next) => {
@@ -20,9 +20,12 @@ export const protect = async (req, res, next) => {
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         req.user = await User.findById(decoded.id).select('-password');
+        console.log(req.user);
         // If user is not found, return an error message not authorized
         next();
     } catch (error) {
         res.status(401).json({ status: "fail", message: "Not authorized, token failed" });
     }
+
+
 };
