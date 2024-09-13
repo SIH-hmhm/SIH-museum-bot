@@ -10,6 +10,11 @@ const Login = ()=> {
     const navigate = useNavigate();
 
 
+    const handleGoogleOAuth = () => {
+        // Redirect to the backend endpoint that handles Google OAuth
+        window.location.href = 'http://localhost:5000/api/users/google';
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (!password || !email) {
@@ -40,6 +45,8 @@ const Login = ()=> {
         }
     };
 
+  
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -61,7 +68,13 @@ const Login = ()=> {
                     onChange={(e) => setPassword(e.target.value)} 
                 />
                 <button type="submit">Login</button>
+                
             </form>
+            <div className="oauth-section">
+                <button onClick={handleGoogleOAuth} className="google-oauth-button">
+                    Signup with Google
+                </button>
+                </div>
         </div>
     );
 }

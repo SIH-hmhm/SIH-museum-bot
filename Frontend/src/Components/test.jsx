@@ -7,11 +7,14 @@ const Chatbot = () => {
 
     useEffect(() => {
         const fetchChats = async () => {
-            const token = localStorage.getItem('token');
 
-            if (!token) {
-                alert('Please log in first');
-                return;
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = urlParams.get('token');
+            
+            if (token) {
+                // Save token to local storage and log it
+                localStorage.setItem('token', token);
+                console.log('Token:', token);
             }
 
             try {

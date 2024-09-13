@@ -3,29 +3,25 @@ import User from '../Models/userModel.js';
 
 // Protect routes from unauthorized users
 export const protect = async (req, res, next) => {
-    
-    // Check if token is present in the request headers or cookies
     let token;
+
+    // Check for token in headers
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
         token = req.headers.authorization.split(' ')[1];
     } else if (req.cookies && req.cookies.token) {
+        // Check for token in cookies
         token = req.cookies.token;
     }
-    // If token is not present, return an error message not authorized
+
     if (!token) {
-        return res.status(401).json({ status: "fail", message: "Not authorized, no token" });
+        return res.status(401).json({ status: 'fail', message: 'Not authorized, no token' });
     }
 
-    // Verify the token and decode it
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         req.user = await User.findById(decoded.id).select('-password');
-        console.log(req.user);
-        // If user is not found, return an error message not authorized
         next();
     } catch (error) {
-        res.status(401).json({ status: "fail", message: "Not authorized, token failed" });
+        res.status(401).json({ status: 'fail', message: 'Not authorized, token failed' });
     }
-
-
 };
