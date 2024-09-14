@@ -1,0 +1,94 @@
+{
+  "intents": [
+    {
+      "intent": "greet",
+      "questions": ["Hi", "Hello", "Hey there", "Good morning", "Good afternoon", "Good evening", "hi", "hello", "hey"],
+      "responses": ["Hello! Welcome to the museum.", "Hi! How can I assist you today?", "Greetings! How may I help you?", "Namaste! How can I help You Sir/Mam"]
+    },
+    {
+      "intent": "goodbye",
+      "questions": ["Goodbye", "See you", "Bye", "Thanks, goodbye", "See you later", "Take care", "Farewell"],
+      "responses": ["Goodbye! Have a great day.", "See you soon!", "Thank you for visiting!", "Dhanyavaad! Happy Visiting"]
+    },
+    {
+      "intent": "museum_hours",
+      "questions": ["What are the museum hours?", "When is the museum open?", "Opening hours of the museum?", "When does the museum close?", "What are today's timings?"],
+      "responses": ["The museum is open from 9 AM to 6 PM.", "We are open daily from 9 AM to 6 PM.", "Our working hours are from 9 AM to 6 PM."]
+    },
+    {
+      "intent": "ticket_price",
+      "questions": ["How much is a ticket?", "What is the cost of a ticket?", "Ticket prices, please", "How much do tickets cost?", "What's the price of tickets?"],
+      "responses": ["The ticket price for adults is ₹300, and for children, it's ₹200.", "Tickets cost ₹300 for adults and ₹200 for children."]
+    },
+    {
+      "intent": "exhibit_info",
+      "questions": ["Tell me about the exhibits", "What exhibits are available?", "Can you describe the current exhibits?", "What can I see at the museum?", "What are the key exhibits?"],
+      "responses": ["We have a variety of exhibits, including ancient Science, modern Science, Research papers as well as Life stories of great scientists.", "Our current exhibits include ancient Science, modern Science, research papers, and space exploration."]
+    },
+    {
+      "intent": "current_exhibits",
+      "questions": ["What are the current exhibits?", "Which exhibits are currently running?", "What's on display now?", "What is the museum showing today?", "What exhibits are featured?"],
+      "responses": ["The current exhibits are on Ancient and Modern science.", "We are showcasing exhibits on science and Evolution of Science."]
+    },
+    {
+      "intent": "special_events",
+      "questions": ["Are there any special events?", "What events are happening now?", "Is there a special exhibit today?", "What special events can I attend?", "Any workshops today?"],
+      "responses": ["Today, we have a special event on space exploration at 2 PM.", "There is a workshop on the Photoelectric effect theory Visualization at 3 PM.", "We have a special exhibit on Astronomy this evening."]
+    },
+    {
+      "intent": "ticket_booking",
+      "questions": ["Can I book a ticket?", "How can I buy tickets?", "I want to purchase a ticket", "Can I buy tickets online?", "Can I reserve a ticket?"],
+      "responses": ["You can book tickets online on our website. We do not offer offline booking.", "Tickets are available for purchase online only. Please visit our website to complete your booking."]
+    },
+    {
+      "intent": "book_tickets_with_quantity",
+      "questions": [
+        "I want to book 2 adult tickets and 3 children tickets",
+        "Can I get 1 ticket for adult and 2 tickets for children?",
+        "Book 3 tickets for adults and 1 for a child",
+        "I need tickets for 2 adults and 2 children"
+      ],
+      "responses": [
+        "You have selected {num_adults} adult tickets and {num_children} children tickets. The total price is ₹{total_price}. Your tickets have been successfully booked."
+      ],
+      "parameters": {
+        "num_adults": {
+          "type": "integer",
+          "description": "Number of adult tickets"
+        },
+        "num_children": {
+          "type": "integer",
+          "description": "Number of children tickets"
+        },
+        "total_price": {
+          "calculation": "{num_adults} * 300 + {num_children} * 200"
+        }
+      }
+    },
+    {
+      "intent": "location",
+      "questions": ["Where is the museum located?", "What is the museum's address?", "Can you give me directions to the museum?", "Where can I find the museum?", "How do I get to the museum?"],
+      "responses": ["The museum is located at Bhandup, Mumbai.", "Our address is Bhandup, Mumbai - 400078, Maharashtra."]
+    },
+    {
+      "intent": "date_time",
+      "questions": ["What is the current date?", "Can you tell me the time?", "What's the date today?", "What's today's date?", "What time is it?"],
+      "responses": ["Today is {date}.", "The current time is {time}.", "It is {date} and the time is {time}."]
+    },
+    {
+      "intent": "parking_info",
+      "questions": ["Is there parking available?", "Where can I park?", "Does the museum have parking?", "What are the parking options?"],
+      "responses": ["Yes, the museum has a parking lot available for visitors.", "We provide parking facilities for all visitors at the museum."]
+    },
+    {
+      "intent": "restaurant_info",
+      "questions": ["Is there a restaurant?", "Can I get food at the museum?", "Where can I eat?", "Does the museum have a cafeteria?", "Is there any place to eat here?"],
+      "responses": ["Yes, we have a restaurant on the museum premises.", "The museum has a cafeteria that offers a variety of food and drinks."]
+    },
+    {
+      "intent": "accessibility_info",
+      "questions": ["Is the museum wheelchair accessible?", "Do you have facilities for disabled visitors?", "Is there any accessibility support?", "Are there ramps or elevators for wheelchairs?"],
+      "responses": ["Yes, the museum is fully wheelchair accessible.", "We offer facilities for disabled visitors, including ramps and elevators."]
+    }
+  ]
+}
