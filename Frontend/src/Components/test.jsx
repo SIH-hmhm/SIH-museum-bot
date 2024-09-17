@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './css/chat.css';
 
 const Chatbot = () => {
     const [message, setMessage] = useState('');
@@ -9,13 +10,15 @@ const Chatbot = () => {
         const fetchChats = async () => {
 
             const urlParams = new URLSearchParams(window.location.search);
-            const token = urlParams.get('token');
-            
-            if (token) {
+            const urlToken = urlParams.get('token');
+
+            if (urlToken) {
                 // Save token to local storage and log it
-                localStorage.setItem('token', token);
-                console.log('Token:', token);
+                localStorage.setItem('token', urlToken);
+                console.log('Token:', urlToken);
             }
+
+            const token = localStorage.getItem('token');
 
             try {
                 const res = await axios.get('http://localhost:5000/api/chatbot', {
@@ -76,31 +79,36 @@ const Chatbot = () => {
 
     return (
         <div>
-            <div>
-                {messages.map((msg, index) => (
-                    <div key={index}>
-                        {msg.userText && (
-                            <p className="user">
-                                <strong>You:</strong> {msg.userText}
-                            </p>
-                        )}
-                        {msg.botText && (
-                            <p className="bot">
-                                <strong>Chatbot:</strong> {msg.botText}
-                            </p>
-                        )}
-                    </div>
-                ))}
+            <div className='chat-container'>
+                <div className='Chat'>
+                    {messages.map((msg, index) => (
+                        <div key={index}>
+                            {msg.userText && (
+                                <p className="user">
+                                    {msg.userText}
+                                </p>
+                            )}
+                            {msg.botText && (
+                                <p className="bot">
+                                    {msg.botText}
+                                </p>
+                            )}
+                        </div>
+                    ))}
+                </div>
             </div>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Type your message"
-                />
-                <button type="submit">Send</button>
+            <form onSubmit={handleSubmit} className='chat-form'>
+                <div className='input-container'>
+                    <input
+                        type="text"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        placeholder="Type your message"
+                    />
+                    <button type="submit" className="send-btn">&#10148;</button> {/* Unicode arrow */}
+                </div>
             </form>
+
         </div>
     );
 };

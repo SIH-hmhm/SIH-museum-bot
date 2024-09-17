@@ -1,8 +1,8 @@
 import './App.css'
 import Chatbot from './Components/test'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './Pages/Login';
-import SignUp from './Pages/SignUp';
+import LoginForm from './Pages/Login';
+import SignupForm from './Pages/SignUp';
 
 function App() {
 
@@ -10,8 +10,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Chatbot />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/signup" element={<SignupForm />} />
 
       </Routes>
     </Router>

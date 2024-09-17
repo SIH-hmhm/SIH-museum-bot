@@ -1,0 +1,124 @@
+.chat-container {
+    max-height: calc(100vh - 150px); /* Ensures the chat container does not overflow the screen */
+    overflow-y: auto; /* Adds scrolling when there are many messages */
+    padding-bottom: 100px; /* Adds space at the bottom for the input */
+    margin: 0 auto; /* Centers the chat container horizontally */
+    overflow-x: hidden;
+}
+
+.Chat {
+    width: 80%;
+    position: relative;
+    left: 22%;
+    
+}
+
+.bot {
+    text-align: left;
+    margin-left: 20%;
+    padding: 20px;
+    border-radius: 30px;
+    width: 40%;
+    background-color: gray;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+
+.user {
+    text-align: left;
+    margin-right: 10%;
+    padding: 20px;
+    border-radius: 30px;
+    width: 40%;
+    background-color: gray;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+
+.input-container {
+    position: fixed;
+    bottom: 0;
+    left: 18%; /* Centers the input horizontally */
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 20px;
+    border-radius: 30px;
+    border:2px solid white;
+    margin: 10px 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding-right: 50px; /* Makes space for the button */
+}
+
+.send-btn {
+    position: absolute;
+    right: 30px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .Chat {
+        width: 100%;
+        left: 0;
+    }
+
+    .bot, .user {
+        width: 50%;
+        font-size: 18px;
+    }
+
+    .input-container {
+        width: 80%;
+        left: 10%;
+    }
+
+    input {
+        font-size: 18px;
+        padding: 15px;
+    }
+
+    .send-btn {
+        right: 20px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Chat {
+        width: 100%;
+        left: 0;
+    }
+
+    .bot, .user {
+        width: 70%;
+        font-size: 16px;
+    }
+
+    .input-container {
+        width: 90%;
+        left: 5%;
+    }
+
+    input {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .send-btn {
+        right: 10px;
+        font-size: 18px;
+    }
+}
